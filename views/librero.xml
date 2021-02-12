@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <data>
+       
+        <record id="view_librero_form" model="ir.ui.view">
+            <field name="name">libreria.librero.form</field>
+            <field name="model">libreria.librero</field>
+            <field name="arch" type="xml">
+                <form string="Librero">
+                    <sheet>
+
+                        <header>
+                            <button name="limpiar_todo" type="object" string="Limpia todo" class="oe_highlight" />
+                        </header>
+
+                        
+                        <group>
+                            <field name="id" />
+                            <field name="nombre" />
+                            <field name="apellido" />
+                            <field name="libro" />
+                            <field name="fecha_venta" />
+                        </group>
+                       
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        
+        <record id="view_librero_tree" model="ir.ui.view">
+            <field name="name">libreria.librero.tree</field>
+            <field name="model">libreria.librero</field>
+            <field name="arch" type="xml">
+                <tree string="Librero">
+                    <field name="id" />
+                    <field name="nombre" />
+                    <field name="apellido" />
+                    <field name="libro" />
+                    <field name="fecha_venta" />
+                </tree>
+            </field>
+        </record>
+
+        
+        <record id="view_calendar_libreria_librero" model="ir.ui.view">
+            <field name="name">Control de Ventas</field>
+            <field name="model">libreria.librero</field>
+            <field name="arch" type="xml">
+                <calendar date_start="fecha_venta" color="id">                    
+                    <field name="nombre" />
+                    <field name="apellido" />
+                    <field name="libro" />
+                </calendar>
+            </field>
+        </record>
+
+        
+        <record id="action_view_librero" model="ir.actions.act_window">
+            <field name="name">Librero</field>
+            <field name="res_model">libreria.librero</field>
+            <field name="view_type">form</field>
+            <field name="view_model">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Crea un nuevo librero</p>
+            </field>
+        </record>
+
+
+        
+        <record id="view_librero_search" model="ir.ui.view">
+                <field name="name">Buscar Librero</field>
+                <field name="model">libreria.librero</field>
+                <field name="arch" type="xml">
+                    <search>
+                        <field name="id" />
+                        <field name="nombre" />
+                        <field name="apellido" />
+                        <field name="libro" />
+                    </search>
+                </field>
+        </record>
+
+        
+        <menuitem id="libreria_menu_root" name="Libreria" />
+        <menuitem id="action_libreria_librero_menu" name="Librero" parent="libreria_menu_root" action="action_view_librero"/>
+
+    </data>
+</odoo>

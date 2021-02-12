@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <data>
+        
+        <record id="view_cliente_form" model="ir.ui.view">
+            <field name="name">libreria.cliente.form</field>
+            <field name="model">libreria.cliente</field>
+            <field name="arch" type="xml">
+                <form string="Cliente">
+                    <sheet>
+
+                        <header>
+                            <button name="limpiar_todo" type="object" string="Limpia todo" class="oe_highlight" />
+                        </header>
+
+                        
+                        <group>
+                            <field name="id" />
+                            <field name="nombre" />
+                            <field name="apellido" />
+                            <field name="telefono" />
+                        </group>
+                        
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        
+        <record id="view_cliente_tree" model="ir.ui.view">
+            <field name="name">libreria.cliente.tree</field>
+            <field name="model">libreria.cliente</field>
+            <field name="arch" type="xml">
+                <tree string="Cliente">
+                    <field name="id" />
+                    <field name="nombre" />
+                    <field name="apellido" />
+                    <field name="telefono" />
+                </tree>
+            </field>
+        </record>
+
+        
+        <record id="action_view_cliente" model="ir.actions.act_window">
+            <field name="name">Cliente</field>
+            <field name="res_model">libreria.cliente</field>
+            <field name="view_type">form</field>
+            <field name="view_model">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Crea un nuevo cliente</p>
+            </field>
+        </record>
+
+
+       
+        <record id="view_cliente_search" model="ir.ui.view">
+                <field name="name">Buscar cliente</field>
+                <field name="model">libreria.cliente</field>
+                <field name="arch" type="xml">
+                    <search>
+                        <field name="id" />
+                        <field name="nombre" />
+                        <field name="apellido" />
+                        <field name="telefono" />
+                    </search>
+                </field>
+        </record>
+
+        
+        <menuitem id="libreria_menu_root" name="Libreria" />
+        <menuitem id="action_libreria_cliente_menu" name="Cliente" parent="libreria_menu_root" action="action_view_cliente"/>
+    </data>
+</odoo>

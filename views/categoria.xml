@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <data>
+        
+        <record id="view_categoria_form" model="ir.ui.view">
+            <field name="name">libreria.categoria.form</field>
+            <field name="model">libreria.categoria</field>
+            <field name="arch" type="xml">
+                <form string="Categoria">
+                    <sheet>
+
+                        <header>
+                            <button name="limpiar_todo" type="object" string="Limpia todo" class="oe_highlight" />
+                        </header>
+
+                        
+                        <group>
+                            <field name="tipo" />
+                        </group>
+                        
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        
+        <record id="view_categoria_tree" model="ir.ui.view">
+            <field name="name">libreria.categoria.tree</field>
+            <field name="model">libreria.categoria</field>
+            <field name="arch" type="xml">
+                <tree string="Categoria">
+                    <field name="tipo" />
+                </tree>
+            </field>
+        </record>
+
+       
+        <record id="action_view_categoria" model="ir.actions.act_window">
+            <field name="name">Categoria</field>
+            <field name="res_model">libreria.categoria</field>
+            <field name="view_type">form</field>
+            <field name="view_model">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Crea una nueva categoria</p>
+            </field>
+        </record>
+
+
+       
+        <record id="view_categoria_search" model="ir.ui.view">
+                <field name="name">Buscar categoria</field>
+                <field name="model">libreria.categoria</field>
+                <field name="arch" type="xml">
+                    <search>
+                        <field name="tipo" />
+                    </search>
+                </field>
+        </record>
+
+        
+        <menuitem id="libreria_menu_root" name="Libreria" />
+        <menuitem id="action_libreria_categoria_menu" name="Categoria" parent="libreria_menu_root" action="action_view_categoria"/>
+    </data>
+</odoo>
